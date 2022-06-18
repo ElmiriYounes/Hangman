@@ -2,13 +2,11 @@ import { words } from "./wordsList.js";
 
 export const word = words[Math.floor(Math.random() * words.length)];
 console.log(word);
-const sum = (a, b) => {
-  return parseInt(a) + parseInt(b);
-};
 
-export default sum;
 const WordContainer = document.querySelector(".word-container");
 const keyboard = document.querySelector(".keyboard");
+
+WordContainer.setAttribute('hidden-word', word);
 
 const generateLetters = () => {
   // generate number of li depending word.length

@@ -12,6 +12,9 @@ const pupeteer = require("puppeteer");
     // await page.evaluate(()=>document.querySelector(''))
     // await page.evaluate(()=>document.querySelectorAll(''))
     // await element.evaluate((el)=> el.style.color = 'red')
+    const n = await page.$('.word-container')
+;    const t = await (await n.getProperty('hidden-word')).jsonValue()
+console.log(t);
   } catch (error) {
     console.error("Error: ", error);
   }
