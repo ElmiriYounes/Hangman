@@ -128,14 +128,13 @@ var words = ["ability", "able", "aboard", "about", "above", "accept", "accident"
 exports.words = words;
 },{}],"TVib":[function(require,module,exports) {
 module.exports = "clicSuccess.52beba1f.mp3";
-},{}],"SakP":[function(require,module,exports) {
-module.exports = "clicError.229f8bde.mp3";
-},{}],"J9AB":[function(require,module,exports) {
-module.exports = "battement.f7834e7e.mp3";
-},{}],"djoS":[function(require,module,exports) {
-module.exports = "criHangman.a46052f2.mp3";
 },{}],"JVpL":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.word = exports.default = void 0;
 
 var _wordsList = require("./wordsList.js");
 
@@ -147,7 +146,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var word = _wordsList.words[Math.floor(Math.random() * _wordsList.words.length)];
 
+exports.word = word;
 console.log(word);
+
+var sum = function sum(a, b) {
+  return parseInt(a) + parseInt(b);
+};
+
+var _default = sum;
+exports.default = _default;
 var WordContainer = document.querySelector(".word-container");
 var keyboard = document.querySelector(".keyboard");
 
@@ -212,9 +219,9 @@ var play = function play() {
   var lettersWord = document.querySelectorAll(".letter-word-container");
   var msgEnd = document.querySelector(".msg-end");
   var audioClicSuccess = new Audio(require("./../assets/audio/clicSuccess.mp3"));
-  var audioClicError = new Audio(require("./../assets/audio/clicError.mp3"));
-  var audioBattement = new Audio(require("./../assets/audio/battement.mp3"));
-  var audioCri = new Audio(require("./../assets/audio/criHangman.mp3"));
+  var audioClicError = new Audio("./../assets/audio/clicError.mp3");
+  var audioBattement = new Audio("./../assets/audio/battement.mp3");
+  var audioCri = new Audio("./../assets/audio/criHangman.mp3");
   /**
    *
    * @param {Event} event
@@ -290,5 +297,5 @@ var play = function play() {
 
 generateLetters();
 play();
-},{"./wordsList.js":"JlIg","./../assets/audio/clicSuccess.mp3":"TVib","./../assets/audio/clicError.mp3":"SakP","./../assets/audio/battement.mp3":"J9AB","./../assets/audio/criHangman.mp3":"djoS"}]},{},["JVpL"], null)
-//# sourceMappingURL=script.df40bd4e.js.map
+},{"./wordsList.js":"JlIg","./../assets/audio/clicSuccess.mp3":"TVib"}]},{},["JVpL"], null)
+//# sourceMappingURL=script.d0239f7e.js.map

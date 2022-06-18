@@ -1,11 +1,16 @@
 import { words } from "./wordsList.js";
 
-const word = words[Math.floor(Math.random() * words.length)];
+export const word = words[Math.floor(Math.random() * words.length)];
 console.log(word);
+const sum = (a, b) => {
+  return parseInt(a) + parseInt(b);
+};
+
+export default sum;
 const WordContainer = document.querySelector(".word-container");
 const keyboard = document.querySelector(".keyboard");
 
-const generateLetters = () =>{
+const generateLetters = () => {
   // generate number of li depending word.length
   let delay = 1;
   for (let char of word) {
@@ -33,7 +38,7 @@ const generateLetters = () =>{
     keyboard !== null && keyboard.appendChild(letterKeyboard);
     char = String.fromCharCode(char.charCodeAt(0) + 1);
   }
-}
+};
 
 const play = () => {
   const lettersKeyboard = document.querySelectorAll(".letter-keyboard");
@@ -45,9 +50,9 @@ const play = () => {
   const lettersWord = document.querySelectorAll(".letter-word-container");
   const msgEnd = document.querySelector(".msg-end");
   var audioClicSuccess = new Audio(require("./../assets/audio/clicSuccess.mp3"));
-  var audioClicError = new Audio(require("./../assets/audio/clicError.mp3"));
-  var audioBattement = new Audio(require("./../assets/audio/battement.mp3"));
-  var audioCri = new Audio(require("./../assets/audio/criHangman.mp3"));
+  var audioClicError = new Audio(require("../assets/audio/clicError.mp3"));
+  var audioBattement = new Audio(require("../assets/audio/battement.mp3"));
+  var audioCri = new Audio(require("../assets/audio/criHangman.mp3"));
 
   /**
    *
@@ -110,23 +115,27 @@ const play = () => {
   };
 
   lettersKeyboard.forEach((letter) => {
-    letter.addEventListener("click", (e) => {
-      let letterFound = searchLetter(e);
+    letter.addEventListener(
+      "click",
+      (e) => {
+        let letterFound = searchLetter(e);
 
-      if (!letterFound) {
-        wrongAnswer(e);
-      } else {
-        correctAnswer(e);
-      }
+        if (!letterFound) {
+          wrongAnswer(e);
+        } else {
+          correctAnswer(e);
+        }
 
-      e.target.disabled = true;
+        e.target.disabled = true;
 
-      // detect if end of game (win or lose)
-      (lives === 0 || countLetterFound === word.length) &&
-        (audioBattement.pause(),
-        (keyboard.style.pointerEvents = "none"),
-        lives === 0 ? gameOver() : youWin());
-    }, false);
+        // detect if end of game (win or lose)
+        (lives === 0 || countLetterFound === word.length) &&
+          (audioBattement.pause(),
+          (keyboard.style.pointerEvents = "none"),
+          lives === 0 ? gameOver() : youWin());
+      },
+      false
+    );
   });
 };
 
