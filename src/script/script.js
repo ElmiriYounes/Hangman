@@ -44,10 +44,10 @@ const play = () => {
   let countLetterFound = 0;
   const lettersWord = document.querySelectorAll(".letter-word-container");
   const msgEnd = document.querySelector(".msg-end");
-  var audioClicSuccess = new Audio(require("../assets/audio/clicSuccess.mp3"));
-  var audioClicError = new Audio(require("../assets/audio/clicError.mp3"));
-  var audioBattement = new Audio(require("../assets/audio/battement.mp3"));
-  var audioCri = new Audio(require("../assets/audio/criHangman.mp3"));
+  var audioClicSuccess = new Audio(require("./../assets/audio/clicSuccess.mp3"));
+  var audioClicError = new Audio(require("./../assets/audio/clicError.mp3"));
+  var audioBattement = new Audio(require("./../assets/audio/battement.mp3"));
+  var audioCri = new Audio(require("./../assets/audio/criHangman.mp3"));
 
   /**
    *
