@@ -2,14 +2,13 @@ const pupeteer = require("puppeteer");
 
 (async () => {
   try {
-    const browser = await pupeteer.launch({ headless: true });
+    const browser = await pupeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.goto("https://experts.shopify.com/");
+    await page.goto("https://elmiriyounes.github.io/hangman");
     // await page.$ equals to document.querySelector
     // await page.$$ equals to document.querySelectorAll
     let sections = await page.$$("div");
     console.log(sections.length);
-    await browser.close();
   } catch (error) {
     console.error("Error: ", error);
   }
